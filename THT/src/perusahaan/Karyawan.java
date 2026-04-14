@@ -12,7 +12,12 @@ public class Karyawan {
         this.nama = nama;
         this.tahunMasuk = tahunMasuk;
         this.gajiPokok = gajiPokok;
-        this.ratingKinerja = ratingKinerja;
+        //untuk aturan validasi rating kinerja 
+        if (ratingKinerja >= 1.0 && ratingKinerja <= 5.0){
+            this.ratingKinerja = ratingKinerja;
+        } else {
+            this.ratingKinerja = 3.0; //default input ga valid
+        }
     }
     //getter & setter
     public String getIDKaryawan(){
@@ -49,14 +54,6 @@ public class Karyawan {
 
     public double getRatingKinerja(){
         return this.ratingKinerja;
-    }
-
-    public void setRatingKinerja(double ratingKinerja){
-        if (ratingKinerja >= 1.0 && ratingKinerja <= 5.0){
-            this.ratingKinerja = ratingKinerja;
-        } else {
-            this.ratingKinerja = 3.0; //default input ga valid
-        }
     }
 
     public double hitungGajiTotal(){
